@@ -53,7 +53,14 @@ export default function ComparisonProblem() {
 
   return (
     <form onSubmit={handleSubmit} className="w-full">
-      <Modal {...{ modalHeading, modalBody, setModalVisible, modalVisible }} />
+      <Modal
+        {...{
+          modalHeading,
+          modalBody,
+          setModalVisible,
+          modalVisible,
+        }}
+      />
       <h1 className="text-5xl leading-tight sm:text-6xl">Comparison Problem</h1>
       <p className="my-8 text-xl sm:text-2xl">
         Mark says 1/4 of his candy bar is smaller than 1/5 of the same candy bar. Is Mark right? Yes
