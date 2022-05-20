@@ -52,16 +52,20 @@ export default function ComparisonProblem() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="w-full">
       <Modal {...{ modalHeading, modalBody, setModalVisible, modalVisible }} />
       <h1 className="text-5xl leading-tight sm:text-6xl">Comparison Problem</h1>
       <p className="my-8 text-xl sm:text-2xl">
         Mark says 1/4 of his candy bar is smaller than 1/5 of the same candy bar. Is Mark right? Yes
         or No. Draw a picture or use words to explain why you think Mark is right or wrong.
       </p>
-      <Canvas {...{ sliderVal }} />
-      <SliderInput handler={setSliderVal} className="ml-32 w-72" />
-      <TextInput handler={setTextVal} className="mt-8 w-[550px]" />
+
+      <div className="flex max-w-[550px] flex-col items-center">
+        <Canvas {...{ sliderVal }} />
+        <SliderInput handler={setSliderVal} className="max-w-xs" />
+      </div>
+
+      <TextInput handler={setTextVal} className="mt-8 max-w-[550px]" />
       <button type="submit" className="btn btn-secondary mt-8" disabled={submitting}>
         Submit Your Answer
       </button>

@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex min-h-screen max-w-[800px] flex-col items-start justify-start py-8">
+      <main className="flex min-h-screen w-full max-w-[800px] flex-col items-start justify-start py-8">
         <ComparisonProblem />
       </main>
     </div>

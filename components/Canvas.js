@@ -1,4 +1,5 @@
 import { Layer, Arrow, Stage, Text } from "react-konva";
+import React, { useState, useEffect } from "react";
 import Marker from "./Marker";
 
 /**
@@ -6,16 +7,34 @@ import Marker from "./Marker";
  *
  * @param {Object} sliderVal The object representing the current slider input value
  */
-export default function Canvas({ sliderVal }) {
+function Canvas({ sliderVal, width }) {
+  const [stageWidth, setStageWidth] = useState(window.innerWidth - 64);
+  const [stageScale, setStageScale] = useState(1);
+
   const y = 60;
   const xMargin = 20;
   const xOffest = 2;
-  const width = 500;
+  const innerArrowWidth = 500;
+
+  /**
+   * Set stage width and scale component states on window resize
+   */
+  const resizeHandler = () => {
+    setStageWidth(window.innerWidth - 64);
+    setStageScale(Math.min(1, (window.innerWidth - 64) / 550));
+  };
+
+  /**
+   * Window resize listener
+   */
+  useEffect(() => {
+    window.onresize = resizeHandler;
+  }, []);
 
   // Construct dyamic markers for representing current fraction
   let dynamicMarkers = [];
   if (sliderVal.value > 0) {
-    const xIncrement = width / sliderVal.denominator;
+    const xIncrement = innerArrowWidth / sliderVal.denominator;
     let xVal = xOffest + xMargin + xIncrement;
 
     for (let i = 0; i < sliderVal.denominator - 1; i++) {
@@ -25,19 +44,25 @@ export default function Canvas({ sliderVal }) {
   }
 
   return (
-    <Stage width={800} height={120}>
+    <Stage
+      width={stageWidth}
+      height={100}
+      scaleX={stageScale}
+      scaleY={stageScale}
+      className="max-w-[550px] overflow-hidden"
+    >
       <Layer>
         <Arrow
           x={xOffest}
           y={y}
-          points={[0, 0, xOffest + xMargin * 2 + width, 0]}
+          points={[0, 0, xOffest + xMargin * 2 + innerArrowWidth, 0]}
           stroke="black"
           pointerAtBeginning
         />
         <Marker x={xOffest + xMargin} y={y} label="0" />
-        <Marker x={xOffest + xMargin + width} y={y} label="1" />
+        <Marker x={xOffest + xMargin + innerArrowWidth} y={y} label="1" />
         <Text
-          x={xOffest + width / 2 - 5}
+          x={xOffest + innerArrowWidth / 2 - 5}
           y={y - 50}
           text={sliderVal.fraction}
           fontSize={24}
@@ -49,3 +74,5 @@ export default function Canvas({ sliderVal }) {
     </Stage>
   );
 }
+
+export default Canvas;
