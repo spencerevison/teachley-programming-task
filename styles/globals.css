@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.MuiButton-containedPrimary {
+  background-color: #a0529f;
+}
