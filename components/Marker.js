@@ -12,7 +12,12 @@ function Marker({ x, y, label }) {
 
   return (
     <>
-      <Line x={x / 2} y={y} points={[x / 2, -markHeight, x / 2, markHeight]} stroke="black" />
+      <Line
+        x={x / 2}
+        y={y}
+        points={[x / 2, -markHeight, x / 2, markHeight]}
+        stroke="black"
+      />
       <Text
         x={x - 6}
         y={y + 20}

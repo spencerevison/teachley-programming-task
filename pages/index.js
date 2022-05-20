@@ -1,6 +1,9 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
-const ComparisonProblem = dynamic(() => import("../components/ComparisonProblem"), { ssr: false });
+const ComparisonProblem = dynamic(
+  () => import("../components/ComparisonProblem"),
+  { ssr: false }
+);
 
 /**
  * Home page

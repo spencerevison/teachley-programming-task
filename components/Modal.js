@@ -22,7 +22,10 @@ function Modal({ modalHeading, modalBody, modalVisible, setModalVisible }) {
       />
       <label htmlFor="modal" className="modal cursor-pointer">
         <label className="modal-box relative" htmlFor="">
-          <label htmlFor="modal" className="btn btn-circle btn-sm absolute right-2 top-2">
+          <label
+            htmlFor="modal"
+            className="btn btn-circle btn-sm absolute right-2 top-2"
+          >
             ✕
           </label>
           <h3 className="text-lg font-bold">{modalHeading}</h3>

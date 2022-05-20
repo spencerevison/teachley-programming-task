@@ -63,8 +63,9 @@ export default function ComparisonProblem() {
       />
       <h1 className="text-5xl leading-tight sm:text-6xl">Comparison Problem</h1>
       <p className="my-8 text-xl sm:text-2xl">
-        Mark says 1/4 of his candy bar is smaller than 1/5 of the same candy bar. Is Mark right? Yes
-        or No. Draw a picture or use words to explain why you think Mark is right or wrong.
+        Mark says 1/4 of his candy bar is smaller than 1/5 of the same candy
+        bar. Is Mark right? Yes or No. Draw a picture or use words to explain
+        why you think Mark is right or wrong.
       </p>
 
       <div className="flex max-w-[550px] flex-col items-center">
@@ -73,7 +74,11 @@ export default function ComparisonProblem() {
       </div>
 
       <TextInput handler={setTextVal} className="mt-8 max-w-[550px]" />
-      <button type="submit" className="btn btn-secondary mt-8" disabled={submitting}>
+      <button
+        type="submit"
+        className="btn btn-secondary mt-8"
+        disabled={submitting}
+      >
         Submit Your Answer
       </button>
     </form>
