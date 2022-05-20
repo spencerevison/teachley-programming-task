@@ -24,7 +24,7 @@ export default function TextInput({ handler, className }) {
       </label>
       <textarea
         id="message"
-        rows="4"
+        rows="2"
         className="textarea textarea-primary w-full bg-gray-50 text-lg"
         placeholder="Explain why he is right or wrong"
         onChange={handleChange}
